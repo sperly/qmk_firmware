@@ -1,0 +1,113 @@
+{
+    "keyboard_name": "FlyBoard", 
+    "url": "", 
+    "maintainer": "sperly",
+    "notes": "65% orthogonal staggered semi-ISO keyboard with macro buttons", 
+    "width": 16, 
+    "height": 5,
+    "debounce": 5, 
+    "diode_direction": "ROW2COL",
+    "matrix_pins": 
+    {
+        "cols": ["F4", "E6", "B1", "D2"],
+        "rows": ["B0", "D3", "D5", "D4", "D6"]
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"label":"M1", "x":1.0, "y":1.0}, 
+                {"label":"ESC", "x":2.0, "y":1.0}, 
+                {"label":"!", "x":3.0, "y":1.0}, 
+                {"label":"\"", "x":4.0, "y":1.0}, 
+                {"label":"#", "x":5.0, "y":1.0}, 
+                {"label":"¤", "x":6.0, "y":1.0}, 
+                {"label":"%", "x":7.0, "y":1.0}, 
+                {"label":"&", "x":10.0, "y":1.0}, 
+                {"label":"/", "x":11.0, "y":1.0}, 
+                {"label":"(", "x":12.0, "y":1.0}, 
+                {"label":")", "x":13.0, "y":1.0}, 
+                {"label":"=", "x":14.0, "y":1.0}, 
+                {"label":"?", "x":15.0, "y":1.0}, 
+                {"label":"BKSP", "x":16.0, "y":1.0}, 
+                
+                {"label":"M2", "x":1.0, "y":2.0}, 
+                {"label":"TAB", "x":2.0, "y":2.0}, 
+                {"label":"Q", "x":3.0, "y":2.0}, 
+                {"label":"W", "x":4.0, "y":2.0}, 
+                {"label":"E", "x":5.0, "y":2.0}, 
+                {"label":"R", "x":6.0, "y":2.0}, 
+                {"label":"T", "x":7.0, "y":2.0}, 
+                {"label":"Y", "x":10.0, "y":2.0}, 
+                {"label":"U", "x":11.0, "y":2.0}, 
+                {"label":"I", "x":12.0, "y":2.0}, 
+                {"label":"O", "x":13.0, "y":2.0}, 
+                {"label":"P", "x":14.0, "y":2.0}, 
+                {"label":"Å", "x":15.0, "y":2.0}, 
+                {"label":"^", "x":16.0, "y":2.0}, 
+                
+                {"label":"M3", "x":1.0, "y":3.0}, 
+                {"label":"SHIFT", "x":2.0, "y":3.0}, 
+                {"label":"A", "x":3.0, "y":3.0}, 
+                {"label":"S", "x":4.0, "y":3.0}, 
+                {"label":"D", "x":5.0, "y":3.0}, 
+                {"label":"F", "x":6.0, "y":3.0}, 
+                {"label":"G", "x":7.0, "y":3.0}, 
+                {"label":"H", "x":10.0, "y":3.0}, 
+                {"label":"J", "x":11.0, "y":3.0}, 
+                {"label":"K", "x":12.0, "y":3.0}, 
+                {"label":"L", "x":13.0, "y":3.0}, 
+                {"label":"Ö", "x":14.0, "y":3.0}, 
+                {"label":"Ä", "x":15.0, "y":3.0}, 
+                {"label":"ENTER", "x":16.0, "y":3.0, "h":2}, 
+                
+                
+                {"label":"M4", "x":1.0, "y":4.0}, 
+                {"label":">", "x":2.0, "y":4.0}, 
+                {"label":"Z", "x":3.0, "y":4.0}, 
+                {"label":"X", "x":4.0, "y":4.0}, 
+                {"label":"C", "x":5.0, "y":4.0}, 
+                {"label":"V", "x":6.0, "y":4.0}, 
+                {"label":"B", "x":7.0, "y":4.0}, 
+                {"label":"Left", "x":8.0, "y":4.0}, 
+                {"label":"Right", "x":9.0, "y":4.0}, 
+                {"label":"N", "x":10.0, "y":4.0}, 
+                {"label":"M", "x":11.0, "y":4.0}, 
+                {"label":";", "x":12.0, "y":4.0}, 
+                {"label":":", "x":13.0, "y":4.0}, 
+                {"label":"-", "x":14.0, "y":4.0}, 
+                {"label":"*", "x":15.0, "y":4.0}, 
+                
+                
+                {"label":"M5", "x":1.0, "y":5.0}, 
+                {"label":"CTRL", "x":2.0, "y":5.0}, 
+                {"label":"OS", "x":3.0, "y":5.0}, 
+                {"label":"ALT", "x":4.0, "y":5.0}, 
+                {"label":"FN", "x":5.0, "y":5.0}, 
+                {"label":"SPACE", "x":6.0, "y":5.0, "w":2}, 
+                {"label":"SHIFT", "x":8.0, "y":5.0}, 
+                {"label":"ALT GR", "x":9.0, "y":5.0}, 
+                {"label":"SPACE", "x":10.0, "y":5.0, "w":2}, 
+                {"label":"FN 2", "x":12.0, "y":5.0}, 
+                {"label":"OS", "x":13.0, "y":5.0}, 
+                {"label":"CTRL", "x":14.0, "y":5.0}, 
+                {"label":"SHIFT", "x":15.0, "y":5.0}, 
+                {"label":"LOCK", "x":16.0, "y":5.0}
+            ] 
+        }
+    },
+    "rgblight": {
+        "led_count": 20,
+        "pin": "B15",
+        "hue_steps": 16,
+        "saturation_steps": 16,
+        "brightness_steps": 16,
+        "animations": {
+            "all": true
+        }
+    },
+    "usb": {
+        "vid": "0xC1ED",
+        "pid": "0x23B0",
+        "device_ver": "0x0001"
+      }
+}

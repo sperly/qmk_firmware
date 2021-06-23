@@ -29,6 +29,8 @@ SPLIT_KEYBOARD = yes
 SERIAL_DRIVER = usart
 KEYBOARD_SHARED_EP = yes
 
+UNICODE_ENABLE = yes
+
 #Currently not working on STM32
 #PS2_MOUSE_ENABLE = yes
 #PS2_USE_USART = yes

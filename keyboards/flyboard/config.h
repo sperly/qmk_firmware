@@ -12,8 +12,13 @@
 #define DESCRIPTION ISO_Compact
 
 /* key matrix size */
+<<<<<<< HEAD
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 4
+=======
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 16
+>>>>>>> 280bd31c8c65fbcc1185b3e62615288e240b1b0e
 
 #define SPLIT_HAND_PIN A8
 
@@ -24,6 +29,7 @@
 
 /* key matrix pins */
 #define MATRIX_ROW_PINS \
+<<<<<<< HEAD
     { B0, B1, B2, B3 }
 #define MATRIX_COL_PINS \
     { D0, D1, D2, D3 }
@@ -32,6 +38,16 @@
     { B0, B1, B2, B3 }
 #define MATRIX_COL_PINS_RIGHT \
     { D0, D1, D2, D3 }
+=======
+    { C13, H0, H1, A1, A2 }
+#define MATRIX_COL_PINS \
+    { A4, B0, B1, B2, B10,B11,B12,A8 }
+
+#define MATRIX_ROW_PINS_RIGHT \
+    { C13, H0, H1, A1, A2 }
+#define MATRIX_COL_PINS_RIGHT \
+    { A4, B0, B1, B2, B10,B11,B12,A8 }
+>>>>>>> 280bd31c8c65fbcc1185b3e62615288e240b1b0e
 
 #define UNUSED_PINS
 
