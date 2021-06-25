@@ -13,14 +13,28 @@
 
 /* key matrix size */
 #define MATRIX_ROWS 5
-#define MATRIX_COLS 16
+#define MATRIX_COLS 8
 
-#define SPLIT_HAND_PIN A8
+/*#define SPLIT_HAND_PIN A8 */
 
 #define OLED_DISPLAY_128X64
+#define OLED_DISPLAY_ADDRESS 0x3C
+#define OLED_IC OLED_IC_SH1106
+#define OLED_TIMEOUT 60000
 
-#define RGBLED_SPLIT \
-    { 10, 10 }
+#define I2C1_CLOCK_SPEED 100000
+#define I2C_DRIVER I2CD1
+#define I2C1_SCL_BANK GPIOB
+#define I2C1_SCL_PAL_MODE 4
+#define I2C1_SCL 8
+#define I2C1_SDA_BANK GPIOB
+#define I2C1_SDA_PAL_MODE 4
+#define I2C1_SDA 7
+
+#define I2C1_DUTY_CYCLE STD_DUTY_CYCLE
+
+/* #define RGBLED_SPLIT \
+    { 10, 10 } */
 
 /* key matrix pins */
 #define MATRIX_ROW_PINS \
@@ -36,11 +50,11 @@
 /* number of backlight levels */
 /* #define BACKLIGHT_PIN B6 */
 /* #ifdef BACKLIGHT_PIN */
-#define LED_DRIVER_ADDR_1 0b1110100
+/* #define LED_DRIVER_ADDR_1 0b1110100
 #define LED_DRIVER_COUNT 1
 #define LED_DRIVER_1_LED_TOTAL 16
 #define DRIVER_LED_TOTAL (LED_DRIVER_1_LED_TOTAL)
-#define BACKLIGHT_LEVELS 5
+#define BACKLIGHT_LEVELS 5 */
 /* #endif */
 
 /* Set 0 if debouncing isn't needed */
@@ -58,23 +72,25 @@
 /* prevent stuck modifiers */
 #define PREVENT_STUCK_MODIFIERS
 
-#define RGB_DI_PIN B15
+#define RGB_DI_PIN A7
 #ifdef RGB_DI_PIN
 #    define RGBLIGHT_ANIMATIONS
-#    define RGBLED_NUM 20
-#    define RGBLIGHT_HUE_STEP 8
-#    define RGBLIGHT_SAT_STEP 8
-#    define RGBLIGHT_VAL_STEP 8
+#    define RGBLED_NUM 5
+#    define RGBLIGHT_HUE_STEP 16
+#    define RGBLIGHT_SAT_STEP 16
+#    define RGBLIGHT_VAL_STEP 16
 #endif
 
-#define WS2812_TRST_US 80
-#define WS2812_SPI SPID2            // default: SPID1
-#define WS2812_SPI_MOSI_PAL_MODE 5  // MOSI pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 5
-#define WS2812_SPI_SCK_PIN B13      // Required for F072, may be for others -- SCK pin, see the respective datasheet for the appropriate values for your MCU. default: unspecified
-#define WS2812_SPI_SCK_PAL_MODE 5   // SCK pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 5
-#define WS2812_BYTE_ORDER WS2812_BYTE_ORDER_RGB
+#define DRIVER_LED_TOTAL RGBLED_NUM
 
-#define SOFT_SERIAL_PIN A9  // USART TX pin
+#define WS2812_TRST_US 80
+#define WS2812_SPI SPID1            // default: SPID1
+#define WS2812_SPI_MOSI_PAL_MODE 5  // MOSI pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 5
+#define WS2812_SPI_SCK_PIN A5       // Required for F072, may be for others -- SCK pin, see the respective datasheet for the appropriate values for your MCU. default: unspecified
+#define WS2812_SPI_SCK_PAL_MODE 5   // SCK pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 5
+/* #define WS2812_BYTE_ORDER WS2812_BYTE_ORDER_GRB */
+
+/* #define SOFT_SERIAL_PIN A9  // USART TX pin
 #define SELECT_SOFT_SERIAL_SPEED \
     2                               // or 0, 2, 3, 4, 5
                                     //  0: about 460800 baud
@@ -87,8 +103,8 @@
 #define SERIAL_USART_TX_PAL_MODE 7  // Pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 7
 #define SERIAL_USART_TIMEOUT \
     100  // USART driver timeout. default 100
-         // #define SERIAL_USART_TX_PIN A9
-         // #define SERIAL_USART_RX_PIN A10
+         #define SERIAL_USART_TX_PIN A9
+         #define SERIAL_USART_RX_PIN A10 */
 
 /*
 #ifdef PS2_USE_USART
