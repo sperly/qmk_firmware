@@ -12,12 +12,11 @@
 #define DESCRIPTION ISO_Compact
 
 /* key matrix size */
-#define MATRIX_ROWS 5
+#define MATRIX_ROWS 10
 #define MATRIX_COLS 8
 
-/*#define MASTER_LEFT
-//#define SPLIT_USB_DETECT
-#define SPLIT_HAND_PIN A8 */
+#define MASTER_RIGHT
+/* #define SPLIT_HAND_PIN A8 */
 
 #define OLED_DISPLAY_128X64
 #define OLED_DISPLAY_ADDRESS 0x3C
@@ -40,11 +39,6 @@
     { C13, H0, H1, A1, A2 }
 #define MATRIX_COL_PINS \
     { A4, B0, B1, B2, B10, B11, B12, A8 }
-
-/* #define MATRIX_ROW_PINS_RIGHT \
-    { C13, H0, H1, A1, A2 }
-#define MATRIX_COL_PINS_RIGHT \
-    { A4, B0, B1, B2, B10, B11, B12, A8 } */
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION ROW2COL
@@ -77,7 +71,7 @@
 #define RGB_DI_PIN A7
 #ifdef RGB_DI_PIN
 #    define RGBLIGHT_ANIMATIONS
-#    define RGBLED_NUM 5
+#    define RGBLED_NUM 20
 #    define RGBLIGHT_HUE_STEP 16
 #    define RGBLIGHT_SAT_STEP 16
 #    define RGBLIGHT_VAL_STEP 16
@@ -91,8 +85,8 @@
 #define WS2812_SPI_SCK_PIN A5       // Required for F072, may be for others -- SCK pin, see the respective datasheet for the appropriate values for your MCU. default: unspecified
 #define WS2812_SPI_SCK_PAL_MODE 5   // SCK pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 5
                                     /* #define WS2812_BYTE_ORDER WS2812_BYTE_ORDER_GRB */
-/*#define RGBLED_SPLIT \
-    { 4, 16 }*/
+#define RGBLED_SPLIT \
+    { 4, 16 }
 
 /*#define SOFT_SERIAL_PIN A9  // USART TX pin*/
 #define SELECT_SOFT_SERIAL_SPEED \

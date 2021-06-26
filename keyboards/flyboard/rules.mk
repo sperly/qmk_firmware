@@ -24,7 +24,7 @@ OLED_DRIVER_ENABLE = yes
 BLUETOOTH_ENABLE = no       # Enable Bluetooth
 AUDIO_ENABLE = no           # Audio output
 STENO_ENABLE = no
-SPLIT_KEYBOARD = no
+SPLIT_KEYBOARD = yes
 
 SERIAL_DRIVER = usart_duplex
 KEYBOARD_SHARED_EP = no
