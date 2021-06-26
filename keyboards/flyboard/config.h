@@ -15,14 +15,16 @@
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 8
 
-/*#define SPLIT_HAND_PIN A8 */
+/*#define MASTER_LEFT
+//#define SPLIT_USB_DETECT
+#define SPLIT_HAND_PIN A8 */
 
 #define OLED_DISPLAY_128X64
 #define OLED_DISPLAY_ADDRESS 0x3C
 #define OLED_IC OLED_IC_SH1106
 #define OLED_TIMEOUT 60000
 
-#define I2C1_CLOCK_SPEED 100000
+#define I2C1_CLOCK_SPEED 400000
 #define I2C_DRIVER I2CD1
 #define I2C1_SCL_BANK GPIOB
 #define I2C1_SCL_PAL_MODE 4
@@ -32,9 +34,6 @@
 #define I2C1_SDA 7
 
 #define I2C1_DUTY_CYCLE STD_DUTY_CYCLE
-
-/* #define RGBLED_SPLIT \
-    { 10, 10 } */
 
 /* key matrix pins */
 #define MATRIX_ROW_PINS \
@@ -61,16 +60,16 @@
 #define DEBOUNCING_DELAY 5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
+// #define LOCKING_SUPPORT_ENABLE
 
 /* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+// #define LOCKING_RESYNC_ENABLE
 
 /* key combination for command */
-#define IS_COMMAND() (keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)))
+//#define IS_COMMAND() (keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)))
 
 /* prevent stuck modifiers */
-#define PREVENT_STUCK_MODIFIERS
+// #define PREVENT_STUCK_MODIFIERS
 
 #define RGB_DI_PIN A7
 #ifdef RGB_DI_PIN
@@ -88,9 +87,11 @@
 #define WS2812_SPI_MOSI_PAL_MODE 5  // MOSI pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 5
 #define WS2812_SPI_SCK_PIN A5       // Required for F072, may be for others -- SCK pin, see the respective datasheet for the appropriate values for your MCU. default: unspecified
 #define WS2812_SPI_SCK_PAL_MODE 5   // SCK pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 5
-/* #define WS2812_BYTE_ORDER WS2812_BYTE_ORDER_GRB */
+                                    /* #define WS2812_BYTE_ORDER WS2812_BYTE_ORDER_GRB */
+/*#define RGBLED_SPLIT \
+    { 4, 16 }*/
 
-/* #define SOFT_SERIAL_PIN A9  // USART TX pin
+/*#define SOFT_SERIAL_PIN A9  // USART TX pin*/
 #define SELECT_SOFT_SERIAL_SPEED \
     2                               // or 0, 2, 3, 4, 5
                                     //  0: about 460800 baud
@@ -99,12 +100,13 @@
                                     //  3: about 57600 baud
                                     //  4: about 38400 baud
                                     //  5: about 19200 baud
-#define SERIAL_USART_DRIVER SD1     // USART driver of TX pin. default: SD1
+#define SERIAL_USART_DRIVER UARTD3  // USART driver of TX pin. default: SD1
 #define SERIAL_USART_TX_PAL_MODE 7  // Pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 7
-#define SERIAL_USART_TIMEOUT \
-    100  // USART driver timeout. default 100
-         #define SERIAL_USART_TX_PIN A9
-         #define SERIAL_USART_RX_PIN A10 */
+#define SERIAL_USART_RX_PAL_MODE 7  // Pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 7
+#define SERIAL_USART_TIMEOUT 100    // USART driver timeout. default 100*/
+
+#define SERIAL_USART_TX_PIN B10
+#define SERIAL_USART_RX_PIN B11
 
 /*
 #ifdef PS2_USE_USART
