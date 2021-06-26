@@ -3,6 +3,8 @@
 #include "hal_rtc.h"
 #include <time.h>
 
+static uint16_t last_keycode = 0;
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Normal Layer */
     [0] = LAYOUT(
@@ -36,6 +38,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_F4, KC_F9, KC_NUBS, KC_Z, KC_X, KC_C, KC_V, KC_BTN1,                           KC_BTN2, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, XXXXXXX, 
         KC_F5, KC_F10, KC_LCTL, _______, MO(1), KC_SPC, XXXXXXX, KC_LSFT,           MO(2), XXXXXXX, KC_SPC, TG(0), _______, KC_RCTL, KC_RSFT, _______
     )
+
+
+
 };
 
 //
@@ -93,14 +98,18 @@ void matrix_scan_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // dprintf("KL: kc: 0x%04X, col: %u, row: %u, pressed: %b, time: %u, interrupt: %b, count: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed, record->event.time, record->tap.interrupted, record->tap.count);
+
     if (record->event.pressed == true) {
-        dprintf("Keycode: 0x%04X\r\n", keycode);
+        // dprintf("Keycode: 0x%04X\r\n", keycode);
         last_keycode = keycode;
     } else {
         last_keycode = 0;
     }
     return true;
 }
+
+// bool is_keyboard_master(void) { return true; }
 
 // void led_set_user(uint8_t usb_led) {
 //     if (usb_led & (1 << USB_LED_NUM_LOCK)) {
@@ -128,9 +137,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     oled_clear();
+    oled_set_cursor(1, 3);
+    oled_write("FlyBoard is Alive!", 0);
     // print("Starting OLED");
     // if (!is_keyboard_master()) {
-    return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
+    return 0;  // return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
     //}
 
     // return rotation;
@@ -140,32 +151,32 @@ void oled_task_user(void) {
     // Host Keyboard Layer Status
     // static const char helix_logo[] PROGMEM = {0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90, 0x91, 0x92, 0x93, 0x94, 0xa0, 0xa1, 0xa2, 0xa3, 0xa4, 0xa5, 0xa6, 0xa7, 0xa8, 0xa9, 0xaa, 0xab, 0xac, 0xad, 0xae, 0xaf, 0xb0, 0xb1, 0xb2, 0xb3, 0xb4, 0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4, 0};
     // oled_write_P(helix_logo, false);
-    RTCDateTime time;
-    struct tm   timp;
-    uint32_t    msec;
-    rtcGetTime(&RTCD1, &time);
-    rtcConvertDateTimeToStructTm(&time, &timp, &msec);
-    oled_set_cursor((oled_max_chars() - 17) / 2, 1);
-    char date_buff[18];
-    sprintf(date_buff, "%02d-%02d-%02d %02d:%02d:%02d", time.year + 80, time.month, time.day, timp.tm_hour, timp.tm_min, timp.tm_sec);
-    oled_write(date_buff, 0);
+    // RTCDateTime time;
+    // struct tm   timp;
+    // uint32_t    msec;
+    // rtcGetTime(&RTCD1, &time);
+    // rtcConvertDateTimeToStructTm(&time, &timp, &msec);
+    // oled_set_cursor((oled_max_chars() - 17) / 2, 1);
+    // char date_buff[18];
+    // sprintf(date_buff, "%02d-%02d-%02d %02d:%02d:%02d", time.year + 80, time.month, time.day, timp.tm_hour, timp.tm_min, timp.tm_sec);
+    // oled_write(date_buff, 0);
 
-    oled_set_cursor(1, 3);
-    oled_write("FlyBoard is Alive!", 0);
-    oled_set_cursor(1, 4);
-    if (is_keyboard_left())
-        oled_write("I am a LEFTY", 0);
-    else
-        oled_write("I am a RIGHTY", 0);
-    oled_set_cursor(2, 6);
-    if (last_keycode != 0) {
-        oled_write("Keycode is: ", 0);
-        char buff[6];
-        sprintf(buff, "0x%04X", last_keycode);
-        oled_write(buff, 0);
-    } else {
-        oled_write("                  ", 0);
-    }
+    // oled_set_cursor(1, 3);
+    // oled_write("FlyBoard is Alive!", 0);
+    // oled_set_cursor(1, 4);
+    // if (is_keyboard_left())
+    //     oled_write("I am a LEFTY", 0);
+    // else
+    //     oled_write("I am a RIGHTY", 0);
+    // oled_set_cursor(2, 6);
+    // if (last_keycode != 0) {
+    //     oled_write("Keycode is: ", 0);
+    //     char buff[6];
+    //     sprintf(buff, "0x%04X", last_keycode);
+    //     oled_write(buff, 0);
+    // } else {
+    //     oled_write("                  ", 0);
+    // }
 
     // oled_render();
 }
