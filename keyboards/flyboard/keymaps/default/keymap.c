@@ -38,9 +38,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_F4, KC_F9, KC_NUBS, KC_Z, KC_X, KC_C, KC_V, KC_BTN1,                           KC_BTN2, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, XXXXXXX, 
         KC_F5, KC_F10, KC_LCTL, _______, MO(1), KC_SPC, XXXXXXX, KC_LSFT,           MO(2), XXXXXXX, KC_SPC, TG(0), _______, KC_RCTL, KC_RSFT, _______
     )
-
-
-
 };
 
 //
@@ -67,6 +64,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
 
     switch (id) {}
     return MACRO_NONE;
+}
 
 // void i2c_init(void) {
 //     setPinInput(B8);  // Try releasing special pins for a short time
@@ -75,13 +73,6 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
 
 //     palSetPadMode(GPIOB, 8, PAL_MODE_ALTERNATE(4) | PAL_STM32_OTYPE_OPENDRAIN | PAL_STM32_PUPDR_PULLUP);  // Set B6 to I2C function
 //     palSetPadMode(GPIOB, 7, PAL_MODE_ALTERNATE(4) | PAL_STM32_OTYPE_OPENDRAIN | PAL_STM32_PUPDR_PULLUP);  // Set B7 to I2C function
-// }
-
-// const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
-//     // keyevent_t event = record->event;
-
-//     switch (id) {}
-//     return MACRO_NONE;
 // }
 
 void board_init(void) {}
@@ -142,7 +133,6 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     // if (!is_keyboard_master()) {
     return 0;  // return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
     //}
-
     // return rotation;
 }
 
