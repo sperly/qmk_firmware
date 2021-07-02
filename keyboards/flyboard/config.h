@@ -28,11 +28,6 @@
 #define MATRIX_COL_PINS \
     { A4, B0, B1, B2, B10,B11,B12,A8 }
 
-#define MATRIX_ROW_PINS_RIGHT \
-    { C13, H0, H1, A1, A2 }
-#define MATRIX_COL_PINS_RIGHT \
-    { A4, B0, B1, B2, B10,B11,B12,A8 }
-
 #define UNUSED_PINS
 
 /* COL2ROW or ROW2COL */
